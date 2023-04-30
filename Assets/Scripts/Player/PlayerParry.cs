@@ -10,7 +10,6 @@ public class PlayerParry : MonoBehaviour
     [SerializeField] private float parryKnockback = 20;
     [SerializeField] private float parrySpeed = 5;
     [SerializeField] private float runDelay = 1;
-    [SerializeField] private KeyCode parryKey;
     [SerializeField] private Transform arrowAnchor;
 
     private float parryInput;

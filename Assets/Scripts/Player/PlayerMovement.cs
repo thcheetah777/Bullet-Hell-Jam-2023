@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
     public bool canRun = true;
     public bool canJump = true;
 
-    [SerializeField] private int playerIndex;
-
     [Header("Running")]
     [SerializeField] private float maxSpeed = 15;
     [SerializeField] private float acceleration = 500;
@@ -47,20 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Start() {
         playerBody = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
 
         originalGravityScale = playerBody.gravityScale;
 
-        // InputDevice
-        // foreach (InputDevice device in InputSystem.devices)
-        // {
-        //     if (device.deviceId == playerIndex)
-        //     {
-        //         targetDevice = device;
-        //         break;
-        //     }
-        // }
-        // playerInput = GetComponent<PlayerInput>();
-        // InputUser.PerformPairingWithDevice(targetDevice, playerInput.user);
+        playerInput.SwitchCurrentControlScheme(Keyboard.current);
     }
     
     void Update() {
